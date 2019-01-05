@@ -1,0 +1,19 @@
+$buttonColor: green;
+
+body {
+  font-family: sans-serif;
+  text-align: center;
+
+  header {
+    background: grey;
+  }
+
+  footer {
+    background: #eee;
+  }
+
+  button {
+    background-color: $buttonColor;
+    color: white;
+  }
+}
