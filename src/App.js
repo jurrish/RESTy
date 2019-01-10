@@ -3,7 +3,7 @@ import React from 'react';
 import './styles.scss';
 
 class Header extends React.Component {
-  render() {
+  render () {
     return <header><h1>Hello!</h1></header>
   }
 }
@@ -13,10 +13,15 @@ function Footer () {
 }
 
 class Words extends React.Component {
-  constructor(props){
+  constructor (props) {
     super(props);
+    console.log(props);  //returns an object
+    // {somePropToPassDown: "some prop that is passed to child through props"}
+
+    console.log(props.somePropToPassDown); //returns "some prop that is passed down through props"
     this.state = {
-      words: '',
+      //u can use props here too if u want!
+      words: this.props.somePropToPassDown || '',
       count: 0
     }
   }
@@ -32,7 +37,7 @@ class Words extends React.Component {
     this.setState({ words, count });
   }
 
-  render(){
+  render () {
     return (
       <form>
         <h2>{ this.state.words } <span>{ this.state.count }</span></h2>
@@ -48,7 +53,7 @@ class App extends React.Component {
     return (
       <React.Fragment>
         <Header />
-        <Words />
+        <Words somePropToPassDown='some prop that is passed to child through props'/>
         <Footer />
       </React.Fragment>
     )
